@@ -16,3 +16,9 @@ body {
     height: 50px; /* Set the fixed height of the footer here */
     line-height: 50px; /* Vertically center the text there */
 }
+
+.my-profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}

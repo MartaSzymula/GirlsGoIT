@@ -16,3 +16,21 @@ def movies(request):
         "movies": Movie.objects.all()
     }
     return render(request, template_name="movies.html", context=my_context)
+
+
+def index(request):
+    return render(request, template_name="base.html")
+
+    
+def subpage(request):
+    return render(request, template_name="subpage.html")
+
+
+def index(request):
+    return render(request, template_name="index.html")
+
+
+def movie_list(request):
+    my_context = {"movies": Movie.objects.all() }
+
+    return render(request, template_name="movie_list.html", context=my_context)

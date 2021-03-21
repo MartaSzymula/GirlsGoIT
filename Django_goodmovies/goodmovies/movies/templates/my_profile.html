@@ -7,8 +7,12 @@
                 <div class="container pb-4">
                     <div class="text-center">
                         <img class="my-profile-photo rounded-circle" src="{% static 'img/user.jpg' %}" alt="My profile photo">
-                        <h4 class="mt-3">IMIĘ NAZWISKO</h4>
-                        <div>Konto aktywne od 09.12.2021 r.</div>
+                        <h4 class="mt-3">{{ request.user.first_name }}
+                            {{ request.user.last_name }}
+                            {{ request.user.username }}
+                        </h4>
+                        <div>Konto aktywne od {{ request.user.date_joined }}</div>
+                        <p>Ostatnie logowanie {{ request.user.last_login }}</p>
                     </div>
 
                     <!-- Tablist -->

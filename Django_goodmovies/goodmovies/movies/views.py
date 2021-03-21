@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
 import datetime
 from movies.models import Movie
 
@@ -22,8 +23,8 @@ def index(request):
     return render(request, template_name="base.html")
 
     
-def subpage(request):
-    return render(request, template_name="subpage.html")
+def profile_view(request):
+    return render(request, template_name="my_profile.html")
 
 
 def index(request):
@@ -34,3 +35,13 @@ def movie_list(request):
     my_context = {"movies": Movie.objects.all() }
 
     return render(request, template_name="movie_list.html", context=my_context)
+
+def user_signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return render(request, template_name="registration/signup_complete.html")
+    else:
+        form = UserCreationForm()
+    return render(request, template_name="registration/signup_form.html", context={'form':form})
